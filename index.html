@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Franklin & Nieves</title>
-    <!-- Fuentes de Google Fonts -->
+    <!-- Fuentes elegantes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --mocha: #8b6b5d;
-            --mocha-oscuro: #5c4338;
-            --mocha-claro: #d8c4bc;
-            --fondo: #fbf9f7;
-            --tarjeta: #ffffff;
-            --texto: #4a3b32;
-            --dorado-suave: #b8977e;
+            --terracota: #c45824;
+            --terracota-oscuro: #9e4216;
+            --crema: #fcf8f3;
+            --dorado: #c59b27;
+            --texto: #3d2c24;
+            --blanco: #ffffff;
         }
 
         * {
@@ -28,25 +27,26 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--fondo);
+            background-color: var(--crema);
             color: var(--texto);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
-        /* Pantalla de Bienvenida (Sobre Minimalista Mocha) */
+        /* Pantalla de Bienvenida (Sobre) */
         #overlay {
             position: fixed;
             inset: 0;
-            background-color: var(--fondo);
+            background: linear-gradient(135deg, #fcf8f3 0%, #f3e5d8 100%);
             z-index: 9999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             transition: opacity 0.8s ease, visibility 0.8s ease;
+            border: 12px solid var(--terracota);
         }
 
         #overlay.oculto {
@@ -54,226 +54,278 @@
             visibility: hidden;
         }
 
-        .monograma-circle {
-            width: 100px;
-            height: 100px;
-            border: 1px solid var(--mocha-claro);
+        .monograma {
+            width: 90px;
+            height: 90px;
+            border: 2px solid var(--dorado);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Great Vibes', cursive;
             font-size: 2.2rem;
-            color: var(--mocha);
-            margin-bottom: 20px;
-            background: var(--tarjeta);
-            box-shadow: 0 10px 30px rgba(139, 107, 93, 0.08);
+            color: var(--terracota);
+            margin-bottom: 15px;
+            background: var(--blanco);
+            box-shadow: 0 4px 15px rgba(196, 88, 36, 0.15);
         }
 
-        .btn-abrir-mocha {
-            margin-top: 30px;
-            padding: 15px 40px;
-            background-color: var(--mocha);
-            color: #ffffff;
+        .btn-abrir {
+            margin-top: 25px;
+            padding: 14px 35px;
+            background-color: var(--terracota);
+            color: var(--blanco);
             border: none;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 107, 93, 0.2);
-            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(196, 88, 36, 0.3);
+            transition: transform 0.2s, background 0.3s;
         }
 
-        .btn-abrir-mocha:hover {
-            background-color: var(--mocha-oscuro);
-            transform: translateY(-2px);
+        .btn-abrir:hover {
+            background-color: var(--terracota-oscuro);
+            transform: scale(1.05);
         }
 
         /* Contenedor Principal */
         .container {
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
-            background: var(--tarjeta);
-            box-shadow: 0 0 40px rgba(0,0,0,0.03);
-            min-height: 100vh;
+            background: var(--blanco);
+            box-shadow: 0 0 30px rgba(0,0,0,0.06);
+            border-left: 6px solid var(--terracota);
+            border-right: 6px solid var(--terracota);
         }
 
         /* Portada */
         header {
             text-align: center;
-            padding: 60px 30px 45px;
-            border-bottom: 1px solid #f0eae5;
+            padding: 50px 25px 40px;
+            background: radial-gradient(circle at top, #fffaf4 0%, #f7ebde 100%);
+            border-bottom: 2px solid var(--dorado);
+            position: relative;
         }
 
-        .tag-boda {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--dorado-suave);
-            margin-bottom: 15px;
-        }
-
-        .nombres-portada {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--mocha-oscuro);
-            font-weight: 400;
-            line-height: 1.1;
-            margin: 15px 0;
-        }
-
-        .nombres-portada span {
-            display: block;
+        .versiculo {
+            font-size: 0.85rem;
             font-style: italic;
-            font-size: 2.2rem;
-            color: var(--mocha);
-            margin: 5px 0;
+            color: #6e5548;
+            max-width: 380px;
+            margin: 0 auto 20px;
         }
 
-        .fecha-mocha {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+        .versiculo span {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--terracota);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .nombres {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            color: var(--terracota);
+            line-height: 1.1;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .nombres span {
+            color: var(--dorado);
+            font-size: 2.8rem;
+        }
+
+        .subtitulo-boda {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
             color: var(--texto);
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #f0eae5;
+            margin-bottom: 25px;
         }
 
-        /* Cuenta Regresiva Estilo Mocha */
+        /* Fecha destacada */
+        .fecha-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 1px solid var(--dorado);
+            border-bottom: 1px solid var(--dorado);
+        }
+
+        .fecha-lado {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .fecha-dia {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--terracota);
+            line-height: 1;
+            padding: 0 15px;
+            border-left: 1px solid var(--dorado);
+            border-right: 1px solid var(--dorado);
+        }
+
+        /* Cuenta Regresiva */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .time-box {
-            background: #f7f4f1;
-            padding: 12px 10px;
-            border-radius: 6px;
+            background: var(--terracota);
+            color: var(--blanco);
+            padding: 10px 12px;
+            border-radius: 8px;
             min-width: 65px;
-            border: 1px solid #eee5e0;
         }
 
         .time-box span {
             display: block;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--mocha-oscuro);
-            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
         }
 
         .time-box small {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--mocha);
         }
 
-        /* Secciones */
+        /* Secciones Generales */
         section {
-            padding: 45px 30px;
+            padding: 35px 25px;
             text-align: center;
-            border-bottom: 1px solid #f0eae5;
+            border-bottom: 1px solid #eee2d5;
         }
 
         h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            color: var(--mocha-oscuro);
-            margin-bottom: 25px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.6rem;
+            color: var(--terracota);
+            margin-bottom: 15px;
             font-weight: 400;
         }
 
-        .evento-card {
-            background: #fbf9f7;
-            border: 1px solid #f0eae5;
-            border-radius: 8px;
-            padding: 30px 20px;
-            margin-bottom: 20px;
-        }
-
-        .evento-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: var(--mocha);
-            margin-bottom: 10px;
-        }
-
-        .hora-text {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--mocha-oscuro);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .direccion-text {
-            font-size: 0.85rem;
-            color: #6e5e55;
-            margin-bottom: 20px;
-        }
-
-        .btn-mocha {
-            display: inline-block;
-            padding: 10px 25px;
-            background: transparent;
-            color: var(--mocha);
-            border: 1px solid var(--mocha);
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .btn-mocha:hover {
-            background: var(--mocha);
-            color: #ffffff;
-        }
-
-        /* Versículo / Frase */
-        .frase-box {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
+        h3 {
+            font-family: 'Cinzel', serif;
             font-size: 1.1rem;
-            color: var(--mocha-oscuro);
-            max-width: 380px;
-            margin: 0 auto;
-            line-height: 1.8;
+            color: var(--terracota);
+            margin-bottom: 5px;
         }
 
-        .frase-box span {
-            display: block;
-            font-style: normal;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: var(--mocha);
-            margin-top: 10px;
+        /* Tarjetas de Evento */
+        .evento-card {
+            background: var(--crema);
+            border: 1px solid #e6d3c1;
+            border-radius: 12px;
+            padding: 25px 20px;
+            margin-bottom: 20px;
         }
 
-        /* Familia */
-        .familia-bloque {
-            margin-bottom: 25px;
+        .hora-badge {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--blanco);
+            padding: 4px 14px;
+            border-radius: 20px;
             font-size: 0.85rem;
-            color: #6e5e55;
+            font-weight: 600;
+            margin: 8px 0 12px;
+        }
+
+        .direccion {
+            font-size: 0.85rem;
+            color: #5c473c;
+            margin-bottom: 18px;
+        }
+
+        .btn-mapa {
+            display: inline-block;
+            padding: 10px 22px;
+            background: var(--terracota);
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-mapa:hover {
+            background: var(--terracota-oscuro);
+        }
+
+        /* Cronograma */
+        .timeline {
+            max-width: 320px;
+            margin: 20px auto 0;
+            text-align: left;
+            border-left: 2px solid var(--terracota);
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--dorado);
+            border: 2px solid var(--terracota);
+        }
+
+        .timeline-hora {
+            font-weight: 700;
+            color: var(--terracota);
+            font-size: 0.9rem;
+        }
+
+        .timeline-titulo {
+            font-size: 0.95rem;
+            color: var(--texto);
+        }
+
+        /* Padres y Padrinos (Compacto) */
+        .familia-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            font-size: 0.85rem;
         }
 
         .familia-bloque strong {
             display: block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--mocha-oscuro);
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+            color: var(--terracota);
+            font-size: 0.8rem;
+            margin-bottom: 3px;
         }
 
-        /* Botón de Música Flotante */
+        /* Botón flotante de música */
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -281,56 +333,59 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: var(--mocha);
+            background: var(--terracota);
             color: white;
-            border: none;
+            border: 2px solid var(--dorado);
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         footer {
-            background: #f7f4f1;
-            padding: 30px 20px;
+            background: var(--terracota);
+            color: var(--blanco);
             text-align: center;
-            font-size: 0.8rem;
-            color: #7a685e;
+            padding: 25px 20px;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio de fondo -->
+    <!-- Audio de fondo vinculado al archivo local cancion.mp3 -->
     <audio id="musica" loop preload="auto">
         <source src="cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
-    <button class="music-btn" onclick="toggleMusica()" title="Pausar/Reproducir música">♫</button>
+    <button class="music-btn" onclick="toggleMusica()" title="Pausar/Reproducir música">🎵</button>
 
-    <!-- Pantalla de bienvenida minimalista -->
+    <!-- Pantalla de entrada -->
     <div id="overlay">
-        <div class="monograma-circle">F&N</div>
-        <p style="font-size: 0.75rem; letter-spacing: 4px; color: #8b6b5d; margin-bottom: 10px;">NUESTRA BODA</p>
-        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: #5c4338; font-weight: 400;">Franklin & Nieves</h1>
-        <button class="btn-abrir-mocha" onclick="abrirInvitacion()">Ver Invitación</button>
+        <div class="monograma">F & N</div>
+        <p style="font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.85rem;">NOS CASAMOS</p>
+        <h1 class="nombres" style="font-size: 3rem;">Franklin <span>&</span> Nieves</h1>
+        <button class="btn-abrir" onclick="abrirInvitacion()">ABRIR INVITACIÓN</button>
     </div>
 
-    <!-- Contenido Principal -->
+    <!-- Contenido de la Invitación -->
     <div class="container">
         
-        <!-- Portada -->
+        <!-- 1. PORTADA -->
         <header>
-            <div class="tag-boda">Save The Date</div>
-            <h1 class="nombres-portada">
-                Franklin
-                <span>&</span>
-                Nieves
-            </h1>
-            <div class="fecha-mocha">SÁBADO, 21 DE NOVIEMBRE · 2026</div>
+            <p class="versiculo">
+                "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto."
+                <span>COLOSENSES 3:14</span>
+            </p>
+            
+            <p class="subtitulo-boda">¡NOS CASAMOS!</p>
+            <h1 class="nombres">Franklin <span>&</span> Nieves</h1>
+
+            <div class="fecha-box">
+                <div class="fecha-lado">SÁBADO</div>
+                <div class="fecha-dia">21</div>
+                <div class="fecha-lado">NOV · 2026</div>
+            </div>
 
             <!-- Cuenta Regresiva -->
             <div class="countdown" id="countdown">
@@ -341,75 +396,102 @@
             </div>
         </header>
 
-        <!-- Versículo -->
-        <section style="background-color: #fcfbf9;">
-            <div class="frase-box">
-                "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto."
-                <span>COLOSENSES 3:14</span>
-            </div>
-        </section>
-
-        <!-- Ubicaciones -->
+        <!-- 2. DÓNDE Y CUÁNDO -->
         <section>
-            <h2>Dónde & Cuándo</h2>
+            <h2>Dónde y Cuándo</h2>
 
+            <!-- Ceremonia -->
             <div class="evento-card">
-                <h3>Ceremonia Religiosa</h3>
-                <div class="hora-text">11:30 A.M.</div>
-                <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 5px;">Iglesia Evangélica Boliviana de Santidad "Luz de Vida"</p>
-                <p class="direccion-text">Zona Final Los Andes, Av. Julio Andrade de Requena Nro. 4365<br>El Alto</p>
-                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-mocha">Ver Ubicación</a>
+                <h3>⛪ Ceremonia Religiosa</h3>
+                <div class="hora-badge">11:30 A.M.</div>
+                <p><strong>Iglesia Evangélica Boliviana de Santidad<br>"LUZ DE VIDA"</strong></p>
+                <p class="direccion">Zona Final Los Andes, Av. Julio Andrade de Requena Nro. 4365<br>El Alto</p>
+                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-mapa">📍 Ver Ubicación</a>
             </div>
 
+            <!-- Recepción -->
             <div class="evento-card" style="margin-bottom: 0;">
-                <h3>Recepción Social</h3>
-                <div class="hora-text">15:30 P.M.</div>
-                <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 5px;">Salón de Eventos "El Gran Barón"</p>
-                <p class="direccion-text">Zona 16 de Julio, Av. Alfonso Ugarte, Calle René Vargas<br>El Alto</p>
-                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-mocha">Ver Ubicación</a>
+                <h3>🥂 Recepción Social</h3>
+                <div class="hora-badge">15:30 P.M.</div>
+                <p><strong>Salón de Eventos<br>"EL GRAN BARÓN"</strong></p>
+                <p class="direccion">Zona 16 de Julio, Av. Alfonso Ugarte, Calle René Vargas<br>El Alto</p>
+                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-mapa">📍 Ver Ubicación</a>
             </div>
         </section>
 
-        <!-- Familia -->
-        <section style="background-color: #fcfbf9;">
+        <!-- 3. CRONOGRAMA -->
+        <section style="background-color: #fffcf8;">
+            <h2>Itinerario</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-hora">11:30 A.M.</div>
+                    <div class="timeline-titulo">⛪ Ceremonia Religiosa</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-hora">15:30 P.M.</div>
+                    <div class="timeline-titulo">🎉 Recepción de Invitados</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-hora">16:30 P.M.</div>
+                    <div class="timeline-titulo">💃 Vals Especial</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-hora">17:00 P.M.</div>
+                    <div class="timeline-titulo">🥂 Brindis</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-hora">19:30 P.M.</div>
+                    <div class="timeline-titulo">🍽️ Cena</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-hora">21:00 P.M.</div>
+                    <div class="timeline-titulo">🎂 Corte de Pastel</div>
+                </div>
+                <div class="timeline-item" style="margin-bottom: 0;">
+                    <div class="timeline-hora">21:15 P.M.</div>
+                    <div class="timeline-titulo">💐 Lanzamiento del Ramo</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FAMILIA Y PADRINOS -->
+        <section style="border-bottom: none;">
             <h2>Con la bendición de</h2>
-            
-            <div class="familia-bloque">
-                <strong>PADRES DEL NOVIO</strong>
-                Alfonso Mendoza (†) & Eulogia Mendoza Quispe (†)<br>
-                Natalia Mendoza & Germán Ramos
-            </div>
-
-            <div class="familia-bloque">
-                <strong>PADRES DE LA NOVIA</strong>
-                Victoriano Quispe & Inocencia Alanoca Murga
-            </div>
-
-            <div class="familia-bloque">
-                <strong>CONSEJEROS MATRIMONIALES</strong>
-                Celso Mamani Canaviri & Gumercinda Quispe de Mamani
-            </div>
-
-            <div class="familia-bloque">
-                <strong>CONSEJEROS CIVILES</strong>
-                Juan Francisco Quenta Limachi & Maxima Rojas Choque de Quenta
-            </div>
-
-            <div class="familia-bloque" style="margin-bottom: 0;">
-                <strong>PATROCINADORA DE TORTA</strong>
-                Victoria Tancara
+            <div class="familia-grid">
+                <div class="familia-bloque">
+                    <strong>PADRES DEL NOVIO</strong>
+                    Alfonso Mendoza (†) & Eulogia Mendoza Quispe (†)<br>
+                    Natalia Mendoza & Germán Ramos
+                </div>
+                <div class="familia-bloque">
+                    <strong>PADRES DE LA NOVIA</strong>
+                    Victoriano Quispe & Inocencia Alanoca Murga
+                </div>
+                <div class="familia-bloque">
+                    <strong>CONSEJEROS MATRIMONIALES</strong>
+                    Celso Mamani Canaviri & Gumercinda Quispe de Mamani
+                </div>
+                <div class="familia-bloque">
+                    <strong>CONSEJEROS CIVILES</strong>
+                    Juan Francisco Quenta Limachi & Maxima Rojas Choque de Quenta
+                </div>
+                <div class="familia-bloque">
+                    <strong>PATROCINADORA DE TORTA</strong>
+                    Victoria Tancara
+                </div>
             </div>
         </section>
 
-        <!-- Footer -->
+        <!-- PIE DE PÁGINA -->
         <footer>
-            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--mocha-oscuro); margin-bottom: 5px;">¡Te esperamos para celebrar juntos!</p>
-            <p>El Alto, Noviembre 2026</p>
+            <p>Agradecemos de antemano su gentil y grata presencia.</p>
+            <p style="margin-top: 5px; font-weight: 600;">El Alto, Noviembre 2026</p>
         </footer>
 
     </div>
 
     <script>
+        // Abrir invitación y reproducir música
         const musica = document.getElementById('musica');
         let sonando = false;
 
@@ -418,7 +500,8 @@
             musica.play().then(() => {
                 sonando = true;
             }).catch((error) => {
-                console.log("Error al reproducir:", error);
+                console.log("Error al reproducir audio:", error);
+                sonando = false;
             });
         }
 
@@ -430,12 +513,12 @@
                 musica.play().then(() => {
                     sonando = true;
                 }).catch((error) => {
-                    console.log("Error al reanudar:", error);
+                    console.log("No se pudo reanudar:", error);
                 });
             }
         }
 
-        // Cuenta regresiva
+        // Cuenta regresiva al 21 de Noviembre de 2026 a las 11:30 AM
         const fechaBoda = new Date("Nov 21, 2026 11:30:00").getTime();
 
         const intervalo = setInterval(function() {
