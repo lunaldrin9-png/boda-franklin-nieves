@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Franklin & Nieves</title>
-    <!-- Fuentes elegantes -->
+    <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --azul-oscuro: #1b263b;
-            --azul-claro: #415a77;
-            --fondo: #ffffff;
-            --fondo-gris: #f8f9fa;
-            --texto: #2b2d42;
-            --dorado: #c59b27;
+            --mocha: #8b6b5d;
+            --mocha-oscuro: #5c4338;
+            --mocha-claro: #d8c4bc;
+            --fondo: #fbf9f7;
+            --tarjeta: #ffffff;
+            --texto: #4a3b32;
+            --dorado-suave: #b8977e;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
@@ -34,505 +34,393 @@
             overflow-x: hidden;
         }
 
-        /* Barra de Navegación Superior */
-        nav {
+        /* Pantalla de Bienvenida (Sobre Minimalista Mocha) */
+        #overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            z-index: 1000;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            color: var(--azul-oscuro);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #6c757d;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--azul-oscuro);
-        }
-
-        /* Portada / Hero Section */
-        header {
-            min-height: 100vh;
-            background-color: var(--azul-oscuro);
-            color: #ffffff;
+            inset: 0;
+            background-color: var(--fondo);
+            z-index: 9999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 60px;
+            padding: 25px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
-        .hero-tag {
-            font-size: 0.75rem;
-            letter-spacing: 4px;
+        #overlay.oculto {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .monograma-circle {
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--mocha-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--mocha);
+            margin-bottom: 20px;
+            background: var(--tarjeta);
+            box-shadow: 0 10px 30px rgba(139, 107, 93, 0.08);
+        }
+
+        .btn-abrir-mocha {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--mocha);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #a0aab2;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 107, 93, 0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-abrir-mocha:hover {
+            background-color: var(--mocha-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--tarjeta);
+            box-shadow: 0 0 40px rgba(0,0,0,0.03);
+            min-height: 100vh;
+        }
+
+        /* Portada */
+        header {
+            text-align: center;
+            padding: 60px 30px 45px;
+            border-bottom: 1px solid #f0eae5;
+        }
+
+        .tag-boda {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--dorado-suave);
             margin-bottom: 15px;
         }
 
-        .hero-nombres {
+        .nombres-portada {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
+            color: var(--mocha-oscuro);
             font-weight: 400;
             line-height: 1.1;
             margin: 15px 0;
-            font-style: italic;
         }
 
-        .hero-nombres span {
-            font-style: normal;
-        }
-
-        .hero-linea {
-            width: 60px;
-            height: 1px;
-            background: #a0aab2;
-            margin: 20px auto;
-        }
-
-        .hero-fecha {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            color: #d8e2dc;
-            margin-bottom: 25px;
-        }
-
-        .hero-frase {
-            font-size: 0.95rem;
-            max-width: 450px;
-            color: #cbd5e1;
-            font-weight: 300;
-        }
-
-        /* Secciones Generales */
-        section {
-            padding: 90px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            color: var(--azul-oscuro);
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .grid-dos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .grid-dos.invertido {
-            direction: rtl;
-        }
-
-        .grid-dos.invertido > * {
-            direction: ltr;
-        }
-
-        .info-card {
-            padding: 20px 0;
-        }
-
-        .badge-sub {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #6c757d;
-            margin-bottom: 10px;
+        .nombres-portada span {
             display: block;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: var(--mocha);
+            margin: 5px 0;
         }
 
-        .hora-destacada {
+        .fecha-mocha {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--texto);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #f0eae5;
+        }
+
+        /* Cuenta Regresiva Estilo Mocha */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .time-box {
+            background: #f7f4f1;
+            padding: 12px 10px;
+            border-radius: 6px;
+            min-width: 65px;
+            border: 1px solid #eee5e0;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--mocha-oscuro);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .time-box small {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--mocha);
+        }
+
+        /* Secciones */
+        section {
+            padding: 45px 30px;
+            text-align: center;
+            border-bottom: 1px solid #f0eae5;
+        }
+
+        h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
-            color: var(--azul-claro);
-            margin: 10px 0 15px;
+            color: var(--mocha-oscuro);
+            margin-bottom: 25px;
             font-weight: 400;
         }
 
-        .btn-ubicacion {
+        .evento-card {
+            background: #fbf9f7;
+            border: 1px solid #f0eae5;
+            border-radius: 8px;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+
+        .evento-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--mocha);
+            margin-bottom: 10px;
+        }
+
+        .hora-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--mocha-oscuro);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .direccion-text {
+            font-size: 0.85rem;
+            color: #6e5e55;
+            margin-bottom: 20px;
+        }
+
+        .btn-mocha {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: var(--azul-oscuro);
-            color: #ffffff;
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--mocha);
+            border: 1px solid var(--mocha);
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 4px;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
-        .btn-ubicacion:hover {
-            background: var(--azul-claro);
-        }
-
-        .img-placeholder {
-            width: 100%;
-            height: 380px;
-            background: #e2e8f0;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Itinerario */
-        .itinerario-container {
-            background: var(--fondo-gris);
-            padding: 90px 20px;
-            text-align: center;
-        }
-
-        .timeline-clean {
-            max-width: 600px;
-            margin: 40px auto 0;
-            text-align: left;
-            border-left: 2px solid #cbd5e1;
-            padding-left: 30px;
-        }
-
-        .timeline-step {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .timeline-step::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: var(--azul-oscuro);
-            border-radius: 50%;
-            border: 2px solid #ffffff;
-        }
-
-        .step-hora {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--azul-claro);
-            letter-spacing: 1px;
-        }
-
-        .step-titulo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--azul-oscuro);
-        }
-
-        /* Cuenta Regresiva */
-        .countdown-section {
-            background: var(--azul-oscuro);
+        .btn-mocha:hover {
+            background: var(--mocha);
             color: #ffffff;
-            text-align: center;
-            padding: 90px 20px;
         }
 
-        .countdown-grid {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .c-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            min-width: 90px;
-        }
-
-        .c-box span {
-            display: block;
+        /* Versículo / Frase */
+        .frase-box {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-        }
-
-        .c-box small {
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #94a3b8;
-        }
-
-        /* Familia y Padrinos */
-        .familia-section {
-            text-align: center;
-            padding: 90px 20px;
-        }
-
-        .familia-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 40px auto 0;
-            text-align: center;
-        }
-
-        .familia-card {
-            background: var(--fondo-gris);
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        .familia-card strong {
-            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
             font-size: 1.1rem;
-            color: var(--azul-oscuro);
-            display: block;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            color: var(--mocha-oscuro);
+            max-width: 380px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
-        /* Botón Flotante de Música */
+        .frase-box span {
+            display: block;
+            font-style: normal;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--mocha);
+            margin-top: 10px;
+        }
+
+        /* Familia */
+        .familia-bloque {
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: #6e5e55;
+        }
+
+        .familia-bloque strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--mocha-oscuro);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        /* Botón de Música Flotante */
         .music-btn {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 50px;
-            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: var(--azul-oscuro);
+            background: var(--mocha);
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1);
         }
 
         footer {
-            background: #0f172a;
-            color: #94a3b8;
+            background: #f7f4f1;
+            padding: 30px 20px;
             text-align: center;
-            padding: 40px 20px;
             font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* Responsivo para celulares */
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .hero-nombres { font-size: 3rem; }
-            .grid-dos, .grid-dos.invertido {
-                grid-template-columns: 1fr;
-                direction: ltr;
-                gap: 30px;
-            }
-            .section-title { font-size: 2.2rem; }
+            color: #7a685e;
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio de fondo vinculado a tu archivo cancion.mp3 -->
+    <!-- Audio de fondo -->
     <audio id="musica" loop preload="auto">
         <source src="cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
     <button class="music-btn" onclick="toggleMusica()" title="Pausar/Reproducir música">♫</button>
 
-    <!-- Barra de navegación superior -->
-    <nav>
-        <a href="#" class="nav-logo">F & N</a>
-        <ul class="nav-links">
-            <li><a href="#ceremonia">Ceremonia</a></li>
-            <li><a href="#recepcion">Recepción</a></li>
-            <li><a href="#itinerario">Itinerario</a></li>
-            <li><a href="#familia">Familia</a></li>
-        </ul>
-    </nav>
-
-    <!-- Portada -->
-    <header>
-        <div class="hero-tag">Con Amor</div>
-        <h1 class="hero-nombres">Franklin <span>&</span> Nieves</h1>
-        <div class="hero-linea"></div>
-        <div class="hero-fecha">10 · 11 · 2026</div>
-        <p class="hero-frase">"Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto."<br><strong style="font-size: 0.75rem; letter-spacing: 2px; color: #a0aab2; display: inline-block; margin-top: 8px;">COLOSENSES 3:14</strong></p>
-    </header>
-
-    <!-- Sección Ceremonia -->
-    <section id="ceremonia">
-        <div class="grid-dos">
-            <div class="info-card">
-                <span class="badge-sub">NUESTRO DÍA</span>
-                <h2 class="section-title">Ceremonia Religiosa</h2>
-                <div class="hora-destacada">11:30 hrs.</div>
-                <p><strong>Iglesia Evangélica Boliviana de Santidad "Luz de Vida"</strong></p>
-                <p style="color: #64748b; font-size: 0.9rem; margin-top: 5px;">Zona Final Los Andes, Av. Julio Andrade de Requena Nro. 4365<br>El Alto, Bolivia</p>
-                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-ubicacion">Ver Ubicación</a>
-            </div>
-            <div class="img-placeholder" style="background: linear-gradient(135deg, #1b263b, #415a77);">
-                ⛪ Iglesia Luz de Vida
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Recepción -->
-    <section id="recepcion" style="padding-top: 0;">
-        <div class="grid-dos invertido">
-            <div class="info-card">
-                <span class="badge-sub">DESPUÉS DE LA CEREMONIA</span>
-                <h2 class="section-title">Recepción Social</h2>
-                <div class="hora-destacada">15:30 hrs.</div>
-                <p><strong>Salón de Eventos "El Gran Barón"</strong></p>
-                <p style="color: #64748b; font-size: 0.9rem; margin-top: 5px;">Zona 16 de Julio, Av. Alfonso Ugarte, Calle René Vargas<br>El Alto, Bolivia</p>
-                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-ubicacion">Ver Ubicación</a>
-            </div>
-            <div class="img-placeholder" style="background: linear-gradient(135deg, #415a77, #1b263b);">
-                🥂 Salón El Gran Barón
-            </div>
-        </div>
-    </section>
-
-    <!-- Itinerario -->
-    <div class="itinerario-container" id="itinerario">
-        <span class="badge-sub">CRONOGRAMA</span>
-        <h2 class="section-title">Cada momento, un recuerdo</h2>
-        
-        <div class="timeline-clean">
-            <div class="timeline-step">
-                <div class="step-hora">11:30 A.M.</div>
-                <div class="step-titulo">Ceremonia Religiosa</div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-hora">15:30 P.M.</div>
-                <div class="step-titulo">Recepción de Invitados</div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-hora">16:30 P.M.</div>
-                <div class="step-titulo">Vals Especial</div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-hora">17:00 P.M.</div>
-                <div class="step-titulo">Brindis de Honor</div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-hora">19:30 P.M.</div>
-                <div class="step-titulo">Cena</div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-hora">21:00 P.M.</div>
-                <div class="step-titulo">Corte de Pastel</div>
-            </div>
-            <div class="timeline-step" style="margin-bottom: 0;">
-                <div class="step-hora">21:15 P.M.</div>
-                <div class="step-titulo">Lanzamiento del Ramo</div>
-            </div>
-        </div>
+    <!-- Pantalla de bienvenida minimalista -->
+    <div id="overlay">
+        <div class="monograma-circle">F&N</div>
+        <p style="font-size: 0.75rem; letter-spacing: 4px; color: #8b6b5d; margin-bottom: 10px;">NUESTRA BODA</p>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: #5c4338; font-weight: 400;">Franklin & Nieves</h1>
+        <button class="btn-abrir-mocha" onclick="abrirInvitacion()">Ver Invitación</button>
     </div>
 
-    <!-- Cuenta Regresiva -->
-    <div class="countdown-section">
-        <span class="badge-sub" style="color: #94a3b8;">CADA VEZ MÁS CERCA</span>
-        <h2 class="section-title" style="color: #ffffff;">La cuenta atrás ya comenzó</h2>
+    <!-- Contenido Principal -->
+    <div class="container">
         
-        <div class="countdown-grid" id="countdown">
-            <div class="c-box"><span id="dias">00</span><small>Días</small></div>
-            <div class="c-box"><span id="horas">00</span><small>Horas</small></div>
-            <div class="c-box"><span id="minutos">00</span><small>Minutos</small></div>
-            <div class="c-box"><span id="segundos">00</span><small>Segundos</small></div>
-        </div>
-    </div>
+        <!-- Portada -->
+        <header>
+            <div class="tag-boda">Save The Date</div>
+            <h1 class="nombres-portada">
+                Franklin
+                <span>&</span>
+                Nieves
+            </h1>
+            <div class="fecha-mocha">SÁBADO, 21 DE NOVIEMBRE · 2026</div>
 
-    <!-- Familia y Padrinos -->
-    <section class="familia-section" id="familia">
-        <span class="badge-sub">AGRADECIMIENTOS</span>
-        <h2 class="section-title">Con la bendición de</h2>
+            <!-- Cuenta Regresiva -->
+            <div class="countdown" id="countdown">
+                <div class="time-box"><span id="dias">00</span><small>Días</small></div>
+                <div class="time-box"><span id="horas">00</span><small>Hrs</small></div>
+                <div class="time-box"><span id="minutos">00</span><small>Min</small></div>
+                <div class="time-box"><span id="segundos">00</span><small>Seg</small></div>
+            </div>
+        </header>
 
-        <div class="familia-grid">
-            <div class="familia-card">
+        <!-- Versículo -->
+        <section style="background-color: #fcfbf9;">
+            <div class="frase-box">
+                "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto."
+                <span>COLOSENSES 3:14</span>
+            </div>
+        </section>
+
+        <!-- Ubicaciones -->
+        <section>
+            <h2>Dónde & Cuándo</h2>
+
+            <div class="evento-card">
+                <h3>Ceremonia Religiosa</h3>
+                <div class="hora-text">11:30 A.M.</div>
+                <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 5px;">Iglesia Evangélica Boliviana de Santidad "Luz de Vida"</p>
+                <p class="direccion-text">Zona Final Los Andes, Av. Julio Andrade de Requena Nro. 4365<br>El Alto</p>
+                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-mocha">Ver Ubicación</a>
+            </div>
+
+            <div class="evento-card" style="margin-bottom: 0;">
+                <h3>Recepción Social</h3>
+                <div class="hora-text">15:30 P.M.</div>
+                <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 5px;">Salón de Eventos "El Gran Barón"</p>
+                <p class="direccion-text">Zona 16 de Julio, Av. Alfonso Ugarte, Calle René Vargas<br>El Alto</p>
+                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-mocha">Ver Ubicación</a>
+            </div>
+        </section>
+
+        <!-- Familia -->
+        <section style="background-color: #fcfbf9;">
+            <h2>Con la bendición de</h2>
+            
+            <div class="familia-bloque">
                 <strong>PADRES DEL NOVIO</strong>
                 Alfonso Mendoza (†) & Eulogia Mendoza Quispe (†)<br>
                 Natalia Mendoza & Germán Ramos
             </div>
-            <div class="familia-card">
+
+            <div class="familia-bloque">
                 <strong>PADRES DE LA NOVIA</strong>
                 Victoriano Quispe & Inocencia Alanoca Murga
             </div>
-            <div class="familia-card">
+
+            <div class="familia-bloque">
                 <strong>CONSEJEROS MATRIMONIALES</strong>
                 Celso Mamani Canaviri & Gumercinda Quispe de Mamani
             </div>
-            <div class="familia-card">
+
+            <div class="familia-bloque">
                 <strong>CONSEJEROS CIVILES</strong>
                 Juan Francisco Quenta Limachi & Maxima Rojas Choque de Quenta
             </div>
-            <div class="familia-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+
+            <div class="familia-bloque" style="margin-bottom: 0;">
                 <strong>PATROCINADORA DE TORTA</strong>
                 Victoria Tancara
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #ffffff; margin-bottom: 8px;">Franklin & Nieves</p>
-        <p>Agradecemos de antemano su gentil presencia · El Alto, 2026</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--mocha-oscuro); margin-bottom: 5px;">¡Te esperamos para celebrar juntos!</p>
+            <p>El Alto, Noviembre 2026</p>
+        </footer>
+
+    </div>
 
     <script>
-        // Reproducción de música al primer toque en cualquier parte o botón
         const musica = document.getElementById('musica');
         let sonando = false;
+
+        function abrirInvitacion() {
+            document.getElementById('overlay').classList.add('oculto');
+            musica.play().then(() => {
+                sonando = true;
+            }).catch((error) => {
+                console.log("Error al reproducir:", error);
+            });
+        }
 
         function toggleMusica() {
             if (sonando) {
@@ -541,20 +429,13 @@
             } else {
                 musica.play().then(() => {
                     sonando = true;
-                }).catch((e) => console.log(e));
+                }).catch((error) => {
+                    console.log("Error al reanudar:", error);
+                });
             }
         }
 
-        // Autoactivación al primer clic en la página
-        document.body.addEventListener('click', function() {
-            if (!sonando) {
-                musica.play().then(() => {
-                    sonando = true;
-                }).catch((e) => {});
-            }
-        }, { once: true });
-
-        // Cuenta regresiva al 21 de Noviembre de 2026
+        // Cuenta regresiva
         const fechaBoda = new Date("Nov 21, 2026 11:30:00").getTime();
 
         const intervalo = setInterval(function() {
