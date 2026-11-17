@@ -7,16 +7,15 @@
     <!-- Fuentes elegantes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --terracota: #c45824;
-            --terracota-oscuro: #9e4216;
-            --crema: #fcf8f3;
-            --crema-oscuro: #f4e8dc;
-            --dorado: #c59b27;
-            --texto: #3d2c24;
+            --dorado-principal: #d4af37;
+            --dorado-oscuro: #997a15;
+            --dorado-suave: #f4ecdf;
+            --marfil: #fcfbfa;
+            --texto: #4a4238;
             --blanco: #ffffff;
         }
 
@@ -28,7 +27,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--crema);
+            background-color: #f7f5f0;
             color: var(--texto);
             line-height: 1.6;
             overflow-x: hidden;
@@ -38,7 +37,7 @@
         #overlay {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #fcf8f3 0%, #f3e5d8 100%);
+            background: linear-gradient(135deg, #fcfbfa 0%, #f4ecdf 100%);
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -47,7 +46,7 @@
             text-align: center;
             padding: 20px;
             transition: opacity 0.8s ease, visibility 0.8s ease;
-            border: 12px solid var(--terracota);
+            border: 10px solid var(--dorado-principal);
         }
 
         #overlay.oculto {
@@ -56,114 +55,112 @@
         }
 
         .monograma {
-            width: 90px;
-            height: 90px;
-            border: 2px solid var(--dorado);
+            width: 95px;
+            height: 95px;
+            border: 2px solid var(--dorado-principal);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
-            color: var(--terracota);
+            font-size: 2.4rem;
+            color: var(--dorado-oscuro);
             margin-bottom: 15px;
             background: var(--blanco);
-            box-shadow: 0 4px 15px rgba(196, 88, 36, 0.15);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
         }
 
         .btn-abrir {
             margin-top: 25px;
-            padding: 14px 35px;
-            background-color: var(--terracota);
+            padding: 14px 38px;
+            background-color: var(--dorado-principal);
             color: var(--blanco);
             border: none;
             border-radius: 30px;
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(196, 88, 36, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
             transition: transform 0.2s, background 0.3s;
         }
 
         .btn-abrir:hover {
-            background-color: var(--terracota-oscuro);
+            background-color: var(--dorado-oscuro);
             transform: scale(1.05);
         }
 
-        /* Contenedor Principal con estilo de tarjeta elegante */
+        /* Contenedor Principal tipo Tarjeta */
         .container {
             max-width: 580px;
             margin: 0 auto;
-            background: var(--blanco);
+            background: var(--marfil);
             box-shadow: 0 0 40px rgba(0,0,0,0.08);
-            border-left: 8px solid var(--terracota);
-            border-right: 8px solid var(--terracota);
+            border-left: 6px solid var(--dorado-principal);
+            border-right: 6px solid var(--dorado-principal);
             position: relative;
         }
 
-        /* Adornos florales y de bordes estilo tarjeta */
-        .borde-decorativo {
+        /* Marcos y Bordes Estilo Tarjeta Elegante */
+        .marco-decorativo {
             text-align: center;
-            color: var(--terracota);
-            font-size: 1.1rem;
-            letter-spacing: 5px;
-            padding: 10px 0;
-            background: var(--crema-oscuro);
-            border-top: 2px solid var(--dorado);
-            border-bottom: 2px solid var(--dorado);
+            color: var(--dorado-principal);
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            padding: 12px 0;
+            background: var(--dorado-suave);
+            border-top: 1px solid var(--dorado-principal);
+            border-bottom: 1px solid var(--dorado-principal);
         }
 
         /* Portada */
         header {
             text-align: center;
-            padding: 40px 25px 35px;
-            background: radial-gradient(circle at top, #fffaf4 0%, #f7ebde 100%);
+            padding: 45px 25px 35px;
+            background: radial-gradient(circle at top, #ffffff 0%, #f7f2eb 100%);
             position: relative;
         }
 
-        .versiculo {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #6e5548;
-            max-width: 420px;
-            margin: 0 auto 15px;
+        .argollas-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dorado-principal);
         }
 
-        .versiculo span {
-            display: block;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 0.75rem;
-            color: var(--terracota);
-            margin-top: 4px;
-            letter-spacing: 1px;
+        .titulo-nuestra-boda {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: var(--dorado-oscuro);
+            font-style: italic;
+            margin-bottom: 5px;
         }
 
         .nombres {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.8rem;
-            color: var(--terracota);
+            font-size: 4rem;
+            color: var(--dorado-oscuro);
             line-height: 1.1;
             margin: 15px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.15);
         }
 
         .nombres span {
-            color: var(--dorado);
-            font-size: 2.8rem;
+            color: var(--dorado-principal);
+            font-size: 3rem;
         }
 
         .texto-motivacion {
-            font-size: 0.85rem;
-            color: #5c473c;
+            font-size: 0.88rem;
+            color: #63584e;
             max-width: 440px;
             margin: 15px auto 25px;
             font-style: italic;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Fecha destacada */
+        /* Fecha tipo tarjeta */
         .fecha-box {
             display: flex;
             justify-content: center;
@@ -171,27 +168,28 @@
             gap: 15px;
             margin: 20px 0;
             padding: 15px 0;
-            border-top: 1px solid var(--dorado);
-            border-bottom: 1px solid var(--dorado);
-            background: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid var(--dorado-principal);
+            border-bottom: 1px solid var(--dorado-principal);
+            background: rgba(244, 236, 223, 0.4);
         }
 
         .fecha-lado {
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--dorado-oscuro);
         }
 
         .fecha-dia {
-            font-family: 'Cinzel', serif;
-            font-size: 2.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: var(--terracota);
+            color: var(--dorado-oscuro);
             line-height: 1;
             padding: 0 15px;
-            border-left: 1px solid var(--dorado);
-            border-right: 1px solid var(--dorado);
+            border-left: 1px solid var(--dorado-principal);
+            border-right: 1px solid var(--dorado-principal);
         }
 
         /* Cuenta Regresiva */
@@ -203,19 +201,19 @@
         }
 
         .time-box {
-            background: var(--terracota);
+            background: var(--dorado-principal);
             color: var(--blanco);
             padding: 10px 12px;
             border-radius: 8px;
             min-width: 65px;
-            box-shadow: 0 4px 10px rgba(196, 88, 36, 0.2);
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.25);
         }
 
         .time-box span {
             display: block;
             font-size: 1.4rem;
             font-weight: 700;
-            font-family: 'Cinzel', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .time-box small {
@@ -228,28 +226,30 @@
         section {
             padding: 40px 25px;
             text-align: center;
-            border-bottom: 1px solid #eee2d5;
+            border-bottom: 1px solid #efe8df;
         }
 
         h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.8rem;
-            color: var(--terracota);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--dorado-oscuro);
             margin-bottom: 20px;
             font-weight: 400;
+            font-style: italic;
         }
 
         h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--terracota);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--dorado-oscuro);
             margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
         /* Tarjetas de Evento */
         .evento-card {
-            background: var(--crema);
-            border: 1px solid #e6d3c1;
+            background: #ffffff;
+            border: 1px solid #e6dccf;
             border-radius: 12px;
             padding: 30px 20px;
             margin-bottom: 20px;
@@ -258,18 +258,21 @@
 
         .hora-badge {
             display: inline-block;
-            background: var(--dorado);
-            color: var(--blanco);
-            padding: 5px 16px;
+            background: var(--dorado-suave);
+            color: var(--dorado-oscuro);
+            border: 1px solid var(--dorado-principal);
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             margin: 8px 0 12px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 1px;
         }
 
         .direccion {
-            font-size: 0.85rem;
-            color: #5c473c;
+            font-size: 0.88rem;
+            color: #63584e;
             margin-bottom: 20px;
             line-height: 1.5;
         }
@@ -277,18 +280,20 @@
         .btn-mapa {
             display: inline-block;
             padding: 11px 25px;
-            background: var(--terracota);
+            background: var(--dorado-principal);
             color: var(--blanco);
             text-decoration: none;
             border-radius: 25px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(196, 88, 36, 0.25);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
             transition: background 0.3s, transform 0.2s;
         }
 
         .btn-mapa:hover {
-            background: var(--terracota-oscuro);
+            background: var(--dorado-oscuro);
             transform: translateY(-2px);
         }
 
@@ -297,7 +302,7 @@
             max-width: 340px;
             margin: 25px auto 0;
             text-align: left;
-            border-left: 2px solid var(--terracota);
+            border-left: 2px solid var(--dorado-principal);
             padding-left: 20px;
         }
 
@@ -307,21 +312,18 @@
         }
 
         .timeline-item::before {
-            content: '🕊️';
+            content: '✨';
             position: absolute;
-            left: -32px;
-            top: 0;
-            font-size: 0.8rem;
-            background: var(--blanco);
-            border-radius: 50%;
-            padding: 2px;
+            left: -29px;
+            top: 2px;
+            font-size: 0.75rem;
         }
 
         .timeline-hora {
             font-weight: 700;
-            color: var(--terracota);
+            color: var(--dorado-oscuro);
             font-size: 0.9rem;
-            font-family: 'Cinzel', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .timeline-titulo {
@@ -329,7 +331,7 @@
             color: var(--texto);
         }
 
-        /* Familia, Padrinos y Consejeros */
+        /* Familia y Padrinos */
         .familia-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -338,18 +340,18 @@
         }
 
         .familia-bloque {
-            background: var(--crema);
-            padding: 18px;
+            background: #ffffff;
+            padding: 20px;
             border-radius: 10px;
-            border: 1px dashed #d8c4bc;
+            border: 1px dashed var(--dorado-principal);
         }
 
         .familia-bloque strong {
             display: block;
-            font-family: 'Cinzel', serif;
-            color: var(--terracota);
-            font-size: 0.8rem;
-            margin-bottom: 5px;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dorado-oscuro);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
             letter-spacing: 1px;
         }
 
@@ -361,9 +363,9 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--terracota);
+            background: var(--dorado-principal);
             color: white;
-            border: 2px solid var(--dorado);
+            border: 2px solid var(--blanco);
             cursor: pointer;
             font-size: 1.2rem;
             z-index: 1000;
@@ -374,12 +376,12 @@
         }
 
         footer {
-            background: var(--terracota);
+            background: var(--dorado-oscuro);
             color: var(--blanco);
             text-align: center;
             padding: 30px 20px;
             font-size: 0.85rem;
-            border-top: 3px solid var(--dorado);
+            border-top: 3px solid var(--dorado-principal);
         }
     </style>
 </head>
@@ -395,27 +397,26 @@
     <!-- Pantalla de entrada -->
     <div id="overlay">
         <div class="monograma">F & N</div>
-        <p style="font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.85rem;">NOS CASAMOS</p>
+        <p style="font-family: 'Cormorant Garamond', serif; letter-spacing: 3px; font-size: 0.9rem; color: #997a15;">NUESTRA BODA</p>
         <h1 class="nombres" style="font-size: 3rem;">Franklin <span>&</span> Nieves</h1>
-        <button class="btn-abrir" onclick="abrirInvitacion()">ABRIR INVITACIÓN</button>
+        <button class="btn-abrir" onclick="abrirInvitacion()">Abrir Invitación</button>
     </div>
 
     <!-- Contenedor Principal -->
     <div class="container">
         
-        <div class="borde-decorativo">♥ 🕊️ ♥ 🕊️ ♥</div>
+        <div class="marco-decorativo">💍 ⚜️ 💍 ⚜️ 💍</div>
 
         <!-- 1. PORTADA -->
         <header>
-            <p class="versiculo">
-                "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto."
-                <span>COLOSENSES 3:14</span>
-            </p>
+            <div class="argollas-icon">💍</div>
+            <h2 class="titulo-nuestra-boda">Nuestra Boda</h2>
             
             <h1 class="nombres">Franklin <span>&</span> Nieves</h1>
 
             <p class="texto-motivacion">
-                Motivados por el amor que nos tenemos y con la bendición de Dios y nuestros Padres, tenemos el agrado de compartir con usted(es) la alegría de celebrar nuestro enlace matrimonial, que se bendecirá el:
+                "Este día muy especial estaremos junto a nuestros seres queridos.<br>
+                Motivados por el amor que nos tenemos y con la bendición de Dios y nuestros Padres, tenemos el agrado de compartir con usted(es) la alegría de celebrar nuestro enlace matrimonial."
             </p>
 
             <div class="fecha-box">
@@ -433,7 +434,7 @@
             </div>
         </header>
 
-        <div class="borde-decorativo">♥ 🕊️ ♥ 🕊️ ♥</div>
+        <div class="marco-decorativo">💍 ⚜️ 💍 ⚜️ 💍</div>
 
         <!-- 2. DÓNDE Y CUÁNDO -->
         <section>
@@ -459,7 +460,7 @@
         </section>
 
         <!-- 3. CRONOGRAMA -->
-        <section style="background-color: #fffcf8;">
+        <section style="background-color: #f7f2eb;">
             <h2>Itinerario</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -521,8 +522,8 @@
 
         <!-- PIE DE PÁGINA -->
         <footer>
-            <p>Agradecemos su gentil y grata presencia.</p>
-            <p style="margin-top: 5px; font-weight: 600; font-family: 'Cinzel', serif;">El Alto, Noviembre 2026</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 5px;">¡Te esperamos para celebrar juntos!</p>
+            <p>Agradecemos su gentil y grata presencia · El Alto, Noviembre 2026</p>
         </footer>
 
     </div>
