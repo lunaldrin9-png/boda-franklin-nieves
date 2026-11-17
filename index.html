@@ -7,13 +7,14 @@
     <!-- Fuentes elegantes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --terracota: #c45824;
             --terracota-oscuro: #9e4216;
             --crema: #fcf8f3;
+            --crema-oscuro: #f4e8dc;
             --dorado: #c59b27;
             --texto: #3d2c24;
             --blanco: #ffffff;
@@ -29,7 +30,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--crema);
             color: var(--texto);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -90,22 +91,34 @@
             transform: scale(1.05);
         }
 
-        /* Contenedor Principal */
+        /* Contenedor Principal con estilo de tarjeta elegante */
         .container {
-            max-width: 550px;
+            max-width: 580px;
             margin: 0 auto;
             background: var(--blanco);
-            box-shadow: 0 0 30px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--terracota);
-            border-right: 6px solid var(--terracota);
+            box-shadow: 0 0 40px rgba(0,0,0,0.08);
+            border-left: 8px solid var(--terracota);
+            border-right: 8px solid var(--terracota);
+            position: relative;
+        }
+
+        /* Adornos florales y de bordes estilo tarjeta */
+        .borde-decorativo {
+            text-align: center;
+            color: var(--terracota);
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            padding: 10px 0;
+            background: var(--crema-oscuro);
+            border-top: 2px solid var(--dorado);
+            border-bottom: 2px solid var(--dorado);
         }
 
         /* Portada */
         header {
             text-align: center;
-            padding: 50px 25px 40px;
+            padding: 40px 25px 35px;
             background: radial-gradient(circle at top, #fffaf4 0%, #f7ebde 100%);
-            border-bottom: 2px solid var(--dorado);
             position: relative;
         }
 
@@ -113,8 +126,8 @@
             font-size: 0.85rem;
             font-style: italic;
             color: #6e5548;
-            max-width: 380px;
-            margin: 0 auto 20px;
+            max-width: 420px;
+            margin: 0 auto 15px;
         }
 
         .versiculo span {
@@ -132,7 +145,7 @@
             font-size: 3.8rem;
             color: var(--terracota);
             line-height: 1.1;
-            margin: 10px 0;
+            margin: 15px 0;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
 
@@ -141,12 +154,13 @@
             font-size: 2.8rem;
         }
 
-        .subtitulo-boda {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            color: var(--texto);
-            margin-bottom: 25px;
+        .texto-motivacion {
+            font-size: 0.85rem;
+            color: #5c473c;
+            max-width: 440px;
+            margin: 15px auto 25px;
+            font-style: italic;
+            line-height: 1.5;
         }
 
         /* Fecha destacada */
@@ -159,18 +173,19 @@
             padding: 15px 0;
             border-top: 1px solid var(--dorado);
             border-bottom: 1px solid var(--dorado);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .fecha-lado {
             font-family: 'Cinzel', serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
         .fecha-dia {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: var(--terracota);
             line-height: 1;
@@ -193,6 +208,7 @@
             padding: 10px 12px;
             border-radius: 8px;
             min-width: 65px;
+            box-shadow: 0 4px 10px rgba(196, 88, 36, 0.2);
         }
 
         .time-box span {
@@ -210,16 +226,16 @@
 
         /* Secciones Generales */
         section {
-            padding: 35px 25px;
+            padding: 40px 25px;
             text-align: center;
             border-bottom: 1px solid #eee2d5;
         }
 
         h2 {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: var(--terracota);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 400;
         }
 
@@ -227,7 +243,7 @@
             font-family: 'Cinzel', serif;
             font-size: 1.1rem;
             color: var(--terracota);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         /* Tarjetas de Evento */
@@ -235,17 +251,18 @@
             background: var(--crema);
             border: 1px solid #e6d3c1;
             border-radius: 12px;
-            padding: 25px 20px;
+            padding: 30px 20px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .hora-badge {
             display: inline-block;
             background: var(--dorado);
             color: var(--blanco);
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin: 8px 0 12px;
         }
@@ -253,29 +270,32 @@
         .direccion {
             font-size: 0.85rem;
             color: #5c473c;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .btn-mapa {
             display: inline-block;
-            padding: 10px 22px;
+            padding: 11px 25px;
             background: var(--terracota);
             color: var(--blanco);
             text-decoration: none;
             border-radius: 25px;
             font-size: 0.85rem;
             font-weight: 600;
-            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(196, 88, 36, 0.25);
+            transition: background 0.3s, transform 0.2s;
         }
 
         .btn-mapa:hover {
             background: var(--terracota-oscuro);
+            transform: translateY(-2px);
         }
 
-        /* Cronograma */
+        /* Cronograma Estilizado */
         .timeline {
-            max-width: 320px;
-            margin: 20px auto 0;
+            max-width: 340px;
+            margin: 25px auto 0;
             text-align: left;
             border-left: 2px solid var(--terracota);
             padding-left: 20px;
@@ -283,25 +303,25 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .timeline-item::before {
-            content: '';
+            content: '🕊️';
             position: absolute;
-            left: -26px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
+            left: -32px;
+            top: 0;
+            font-size: 0.8rem;
+            background: var(--blanco);
             border-radius: 50%;
-            background: var(--dorado);
-            border: 2px solid var(--terracota);
+            padding: 2px;
         }
 
         .timeline-hora {
             font-weight: 700;
             color: var(--terracota);
             font-size: 0.9rem;
+            font-family: 'Cinzel', serif;
         }
 
         .timeline-titulo {
@@ -309,12 +329,19 @@
             color: var(--texto);
         }
 
-        /* Padres y Padrinos (Compacto) */
+        /* Familia, Padrinos y Consejeros */
         .familia-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 20px;
             font-size: 0.85rem;
+        }
+
+        .familia-bloque {
+            background: var(--crema);
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px dashed #d8c4bc;
         }
 
         .familia-bloque strong {
@@ -322,38 +349,43 @@
             font-family: 'Cinzel', serif;
             color: var(--terracota);
             font-size: 0.8rem;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         /* Botón flotante de música */
         .music-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: var(--terracota);
             color: white;
             border: 2px solid var(--dorado);
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         footer {
             background: var(--terracota);
             color: var(--blanco);
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
             font-size: 0.85rem;
+            border-top: 3px solid var(--dorado);
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio de fondo vinculado al archivo local cancion.mp3 -->
+    <!-- Audio de fondo -->
     <audio id="musica" loop preload="auto">
         <source src="cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
@@ -368,9 +400,11 @@
         <button class="btn-abrir" onclick="abrirInvitacion()">ABRIR INVITACIÓN</button>
     </div>
 
-    <!-- Contenido de la Invitación -->
+    <!-- Contenedor Principal -->
     <div class="container">
         
+        <div class="borde-decorativo">♥ 🕊️ ♥ 🕊️ ♥</div>
+
         <!-- 1. PORTADA -->
         <header>
             <p class="versiculo">
@@ -378,13 +412,16 @@
                 <span>COLOSENSES 3:14</span>
             </p>
             
-            <p class="subtitulo-boda">¡NOS CASAMOS!</p>
             <h1 class="nombres">Franklin <span>&</span> Nieves</h1>
+
+            <p class="texto-motivacion">
+                Motivados por el amor que nos tenemos y con la bendición de Dios y nuestros Padres, tenemos el agrado de compartir con usted(es) la alegría de celebrar nuestro enlace matrimonial, que se bendecirá el:
+            </p>
 
             <div class="fecha-box">
                 <div class="fecha-lado">SÁBADO</div>
                 <div class="fecha-dia">21</div>
-                <div class="fecha-lado">NOV · 2026</div>
+                <div class="fecha-lado">NOVIEMBRE · 2026</div>
             </div>
 
             <!-- Cuenta Regresiva -->
@@ -396,26 +433,28 @@
             </div>
         </header>
 
+        <div class="borde-decorativo">♥ 🕊️ ♥ 🕊️ ♥</div>
+
         <!-- 2. DÓNDE Y CUÁNDO -->
         <section>
             <h2>Dónde y Cuándo</h2>
 
             <!-- Ceremonia -->
             <div class="evento-card">
-                <h3>⛪ Ceremonia Religiosa</h3>
+                <h3>⛪ CEREMONIA RELIGIOSA</h3>
                 <div class="hora-badge">11:30 A.M.</div>
                 <p><strong>Iglesia Evangélica Boliviana de Santidad<br>"LUZ DE VIDA"</strong></p>
                 <p class="direccion">Zona Final Los Andes, Av. Julio Andrade de Requena Nro. 4365<br>El Alto</p>
-                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-mapa">📍 Ver Ubicación</a>
+                <a href="https://maps.app.goo.gl/jkMQtzByJEAjBDZ4A" target="_blank" class="btn-mapa">📍 Ver Ubicación en Mapa</a>
             </div>
 
             <!-- Recepción -->
             <div class="evento-card" style="margin-bottom: 0;">
-                <h3>🥂 Recepción Social</h3>
+                <h3>🥂 RECEPCIÓN SOCIAL</h3>
                 <div class="hora-badge">15:30 P.M.</div>
                 <p><strong>Salón de Eventos<br>"EL GRAN BARÓN"</strong></p>
                 <p class="direccion">Zona 16 de Julio, Av. Alfonso Ugarte, Calle René Vargas<br>El Alto</p>
-                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-mapa">📍 Ver Ubicación</a>
+                <a href="https://maps.app.goo.gl/THAmspSUiRQkoQaW8?g_st=aw" target="_blank" class="btn-mapa">📍 Ver Ubicación en Mapa</a>
             </div>
         </section>
 
@@ -437,7 +476,7 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-hora">17:00 P.M.</div>
-                    <div class="timeline-titulo">🥂 Brindis</div>
+                    <div class="timeline-titulo">🥂 Brindis de Honor</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-hora">19:30 P.M.</div>
@@ -459,13 +498,11 @@
             <h2>Con la bendición de</h2>
             <div class="familia-grid">
                 <div class="familia-bloque">
-                    <strong>PADRES DEL NOVIO</strong>
-                    Alfonso Mendoza (†) & Eulogia Mendoza Quispe (†)<br>
-                    Natalia Mendoza & Germán Ramos
-                </div>
-                <div class="familia-bloque">
-                    <strong>PADRES DE LA NOVIA</strong>
-                    Victoriano Quispe & Inocencia Alanoca Murga
+                    <strong>PADRES DEL NOVIO & DE LA NOVIA</strong>
+                    Alfonso Mendoza (†) * Eulogia Mendoza Quispe (†)<br>
+                    Natalia Mendoza * Germán Ramos<br><br>
+                    <strong>PADRES DE LA NOVIA:</strong><br>
+                    Victoriano Quispe * Inocencia Alanoca Murga
                 </div>
                 <div class="familia-bloque">
                     <strong>CONSEJEROS MATRIMONIALES</strong>
@@ -484,8 +521,8 @@
 
         <!-- PIE DE PÁGINA -->
         <footer>
-            <p>Agradecemos de antemano su gentil y grata presencia.</p>
-            <p style="margin-top: 5px; font-weight: 600;">El Alto, Noviembre 2026</p>
+            <p>Agradecemos su gentil y grata presencia.</p>
+            <p style="margin-top: 5px; font-weight: 600; font-family: 'Cinzel', serif;">El Alto, Noviembre 2026</p>
         </footer>
 
     </div>
