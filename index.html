@@ -353,9 +353,10 @@
 </head>
 <body>
 
-    <!-- Audio de fondo (Puedes cambiar el enlace por un archivo .mp3 tuyo) -->
-    <audio id="musica" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    <!-- Audio de fondo vinculado al archivo local cancion.mp3 -->
+    <audio id="musica" loop preload="auto">
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
     </audio>
     <button class="music-btn" onclick="toggleMusica()" title="Pausar/Reproducir música">🎵</button>
 
@@ -498,7 +499,8 @@
             document.getElementById('overlay').classList.add('oculto');
             musica.play().then(() => {
                 sonando = true;
-            }).catch(() => {
+            }).catch((error) => {
+                console.log("Error al reproducir audio:", error);
                 sonando = false;
             });
         }
@@ -508,8 +510,11 @@
                 musica.pause();
                 sonando = false;
             } else {
-                musica.play();
-                sonando = true;
+                musica.play().then(() => {
+                    sonando = true;
+                }).catch((error) => {
+                    console.log("No se pudo reanudar:", error);
+                });
             }
         }
 
